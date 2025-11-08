@@ -1,25 +1,6 @@
 import React from "react";
 import { Platform, View, Dimensions } from "react-native";
-import { Line } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  LineElement,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  Tooltip,
-  Legend,
-} from "chart.js";
 import { LineChart } from "react-native-chart-kit";
-
-ChartJS.register(
-  LineElement,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  Tooltip,
-  Legend
-);
 
 const screenWidth = Dimensions.get("window").width;
 
@@ -28,6 +9,22 @@ export default function MarketChart() {
   const values = [120, 140, 160, 180, 150];
 
   if (Platform.OS === "web") {
+    // Dynamically import web-only chart libraries
+    const ReactChartJS2 = require("react-chartjs-2");
+    const ChartJSModule = require("chart.js");
+
+    const Line = ReactChartJS2.Line;
+    const ChartJS = ChartJSModule.Chart;
+
+    ChartJS.register(
+      ChartJSModule.LineElement,
+      ChartJSModule.CategoryScale,
+      ChartJSModule.LinearScale,
+      ChartJSModule.PointElement,
+      ChartJSModule.Tooltip,
+      ChartJSModule.Legend
+    );
+
     const data = {
       labels,
       datasets: [

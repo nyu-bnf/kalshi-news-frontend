@@ -1,18 +1,20 @@
-import "./global.css";
 import "react-native-gesture-handler";
-import "react-native-reanimated";
+import "./global.css";
 
 import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import DashboardScreen from "./screens/DashboardScreen";
 import NavigationBar from "./components/NavigationBar";
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <NavigationBar />
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <NavigationBar />
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 

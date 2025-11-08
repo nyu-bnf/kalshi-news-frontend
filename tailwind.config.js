@@ -5,9 +5,9 @@ module.exports = {
     "./screens/**/*.{js,jsx,ts,tsx}", // screen files
     "./components/**/*.{js,jsx,ts,tsx}", // components
   ],
+  presets: [require("nativewind/preset")],
   theme: {
     extend: {},
   },
-  presets: [require("nativewind/preset")],
   plugins: [],
 };
