@@ -10,7 +10,7 @@ import { Card, Button } from "react-native-paper";
 import DashboardHeader from "../components/DashboardHeader";
 import MarketChart from "../components/MarketChart";
 
-export default function DashboardScreen() {
+export default function DashboardScreen({ navigation }) {
   const [selectedCategory, setSelectedCategory] = useState("Trending");
 
   return (
@@ -47,7 +47,7 @@ export default function DashboardScreen() {
           )}
         </ScrollView>
 
-        {/* Market Chart Component */}
+        {/* market Chart Component */}
         <Text style={styles.sectionTitle}>Your Holdings</Text>
         <View style={styles.chartContainer}>
           <MarketChart />
@@ -55,7 +55,7 @@ export default function DashboardScreen() {
 
         <Text style={styles.sectionTitle}>For You</Text>
 
-        {/* Card component */}
+        {/* card for each bet */}
         <Card style={styles.card}>
           <Card.Content>
             <Text style={styles.cardTitle}>
@@ -72,9 +72,35 @@ export default function DashboardScreen() {
                 mode="contained"
                 buttonColor="#10b981"
                 style={styles.viewButton}
-                onPress={() => console.log("View details")}
+                labelStyle={styles.viewButtonLabel}
+                onPress={() => navigation.navigate("PressOnBet")}
               >
-                View
+                View Related News
+              </Button>
+            </View>
+          </Card.Content>
+        </Card>
+
+        <Card style={styles.card}>
+          <Card.Content>
+            <Text style={styles.cardTitle}>
+              Next U.S. Presidential Election Winner?
+            </Text>
+            <Text style={styles.cardCategory}>Politics</Text>
+
+            <View style={styles.cardRow}>
+              <View>
+                <Text style={styles.cardText}>J.D. Vance 32%</Text>
+                <Text style={styles.cardText}>Gavin Newsom 22%</Text>
+              </View>
+              <Button
+                mode="contained"
+                buttonColor="#10b981"
+                style={styles.viewButton}
+                labelStyle={styles.viewButtonLabel}
+                onPress={() => navigation.navigate("PressOnBet")}
+              >
+                View Related News
               </Button>
             </View>
           </Card.Content>
@@ -148,5 +174,10 @@ const styles = StyleSheet.create({
   viewButton: {
     borderRadius: 20,
     paddingHorizontal: 4,
+    paddingVertical: 2,
+  },
+  viewButtonLabel: {
+    fontSize: 12,
+    paddingVertical: 0,
   },
 });

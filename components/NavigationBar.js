@@ -1,11 +1,23 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
 import { Ionicons } from "@expo/vector-icons";
 
 import DashboardScreen from "../screens/DashboardScreen";
 import ProfileScreen from "../screens/ProfileScreen";
+import PressOnBetScreen from "../screens/PressOnBetScreen";
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+
+function ExploreStack() {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Dashboard" component={DashboardScreen} />
+      <Stack.Screen name="PressOnBet" component={PressOnBetScreen} />
+    </Stack.Navigator>
+  );
+}
 
 export default function NavigationBar() {
   return (
@@ -41,7 +53,7 @@ export default function NavigationBar() {
         },
       })}
     >
-      <Tab.Screen name="Explore" component={DashboardScreen} />
+      <Tab.Screen name="Explore" component={ExploreStack} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
       <Tab.Screen
         name="Wallet"
