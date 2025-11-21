@@ -7,6 +7,7 @@ import Animated, {
   withTiming,
   withDelay,
 } from "react-native-reanimated";
+import { Ionicons } from "@expo/vector-icons";
 
 const CATEGORIES = [
   "anything",
@@ -79,10 +80,10 @@ export default function OnboardingScreen({ navigation }) {
   });
 
   const handleConnectWallet = () => {
-    // Navigate to main app with bottom tabs
+    // Navigate to topic picker screen
     console.log("Connect wallet pressed!");
     if (navigation) {
-      navigation.navigate("Main");
+      navigation.navigate("TopicPicker");
     }
   };
 
@@ -180,7 +181,10 @@ export default function OnboardingScreen({ navigation }) {
             style={styles.connectButton}
             onPress={handleConnectWallet}
           >
-            <Text style={styles.connectButtonText}>📱 Connect your wallet</Text>
+            <View style={styles.connectButtonContent}>
+              <Ionicons name="wallet-outline" size={20} color="#000000" />
+              <Text style={styles.connectButtonText}>Connect your wallet</Text>
+            </View>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -295,6 +299,11 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     paddingVertical: 16,
     alignItems: "center",
+  },
+  connectButtonContent: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
   },
   connectButtonText: {
     fontSize: 18,

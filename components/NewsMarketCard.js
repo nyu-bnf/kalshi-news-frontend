@@ -31,12 +31,27 @@ export default function NewsMarketCard({
         </View>
         <Image source={newsImage} style={styles.newsImage} />
       </View>
-      
+
       {/* Centered Dots */}
       <View style={styles.dotContainer}>
-        <View style={[styles.dot, { backgroundColor: isActive ? "#000" : "#666666" }]} />
-        <View style={[styles.dot, { backgroundColor: isActive ? "#000" : "#666666" }]} />
-        <View style={[styles.dot, { backgroundColor: isActive ? "#000" : "#666666" }]} />
+        <View
+          style={[
+            styles.dot,
+            { backgroundColor: isActive ? "#000" : "#666666" },
+          ]}
+        />
+        <View
+          style={[
+            styles.dot,
+            { backgroundColor: isActive ? "#000" : "#666666" },
+          ]}
+        />
+        <View
+          style={[
+            styles.dot,
+            { backgroundColor: isActive ? "#000" : "#666666" },
+          ]}
+        />
       </View>
 
       {/* Market Prediction Section */}
@@ -80,7 +95,10 @@ export default function NewsMarketCard({
         ))}
 
         {/* See More Related Link */}
-        <TouchableOpacity onPress={onSeeMorePress} style={styles.seeMoreContainer}>
+        <TouchableOpacity
+          onPress={onSeeMorePress}
+          style={styles.seeMoreContainer}
+        >
           <Text style={styles.seeMoreText}>See more related</Text>
         </TouchableOpacity>
       </View>
@@ -94,13 +112,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginBottom: 12,
     padding: 12,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
+    boxShadow: "0 2px 8px 0 rgba(0, 0, 0, 0.1)",
     elevation: 3,
   },
   newsHeader: {
@@ -230,4 +242,3 @@ const styles = StyleSheet.create({
     textDecorationLine: "underline",
   },
 });
-

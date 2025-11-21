@@ -8,7 +8,7 @@ import {
   Image,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import ProfileHeader from "../components/ProfileHeader";
+import DashboardHeader from "../components/DashboardHeader";
 
 export default function ProfileScreen() {
   const bets = [
@@ -37,7 +37,7 @@ export default function ProfileScreen() {
 
   return (
     <View style={styles.container}>
-      <ProfileHeader />
+      <DashboardHeader showBorder={true} />
 
       <ScrollView
         style={styles.scrollView}

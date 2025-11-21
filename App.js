@@ -7,6 +7,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import OnboardingScreen from "./screens/OnboardingScreen";
+import TopicPickerScreen from "./screens/TopicPickerScreen";
 import NavigationBar from "./components/NavigationBar";
 
 const Stack = createStackNavigator();
@@ -20,6 +21,7 @@ export default function App() {
           screenOptions={{ headerShown: false }}
         >
           <Stack.Screen name="Onboarding" component={OnboardingScreen} />
+          <Stack.Screen name="TopicPicker" component={TopicPickerScreen} />
           <Stack.Screen name="Main" component={NavigationBar} />
         </Stack.Navigator>
       </NavigationContainer>
